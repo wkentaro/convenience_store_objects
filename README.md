@@ -4,6 +4,9 @@
 
 
 ```bash
+# launch openni2 cameras
+roslaunch convenience_store_objects openni2.launch
+
 # record rosbag: data/<object name>_20XX-XX-XX-XX-XX-XX.bag
 roslaunch convenience_store_objects record_object_rosbag.launch name:=<object name>
 
