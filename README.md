@@ -4,12 +4,12 @@
 
 
 ```bash
-# record
+# record rosbag: data/<object name>_20XX-XX-XX-XX-XX-XX.bag
 roslaunch convenience_store_objects record_object_rosbag.launch name:=<object name>
 
 # upload the rosbag to https://drive.google.com/open?id=0B5hRAGKTOm_KOTR0a0Q2TmtjTzA
 
-# play
+# play rosbag
 roslaunch convenience_store_objects play_object_rosbag.launch rosbag:=<bag file>
 ```
 
