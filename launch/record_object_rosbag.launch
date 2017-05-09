@@ -1,0 +1,16 @@
+<launch>
+
+  <arg name="name" />
+
+  <node name="record"
+        pkg="rosbag" type="record"
+        args="/camera/rgb/camera_info
+              /camera/rgb/image_rect_color
+              /camera/depth_registered/camera_info
+              /camera/depth_registered/hw_registered/image_rect_raw
+              -o $(find convenience_store_objects)/data/$(arg name)
+              --duration 20
+              ">
+  </node>
+
+</launch>

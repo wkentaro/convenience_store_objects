@@ -1,0 +1,33 @@
+<launch>
+
+  <arg name="rosbag" default="$(find convenience_store_objects)/data/takenoko_no_sato_2017-05-09-21-37-12.bag" />
+
+  <node name="play"
+        pkg="rosbag" type="play"
+        args="$(arg rosbag) --clock --loop">
+  </node>
+
+  <group ns="/camera">
+    <node name="point_cloud_xyzrgb"
+          pkg="nodelet" type="nodelet"
+          args="standalone depth_image_proc/point_cloud_xyzrgb">
+      <remap from="depth_registered/image_rect" to="depth_registered/hw_registered/image_rect_raw" />
+    </node>
+  </group>
+
+  <node name="image_view_depth"
+        pkg="image_view" type="image_view">
+    <remap from="image" to="/camera/depth_registered/hw_registered/image_rect_raw" />
+    <rosparam>
+      gui: false
+      do_dynamic_scaling: true
+      colormap: 2
+    </rosparam>
+  </node>
+
+  <node name="rviz"
+        pkg="rviz" type="rviz"
+        args="-d $(find convenience_store_objects)/rvizconfig/default.rviz">
+  </node>
+
+</launch>

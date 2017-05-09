@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package>
+  <name>convenience_store_objects</name>
+  <version>0.0.1</version>
+  <description>Package to record object data for convenience store</description>
+  <maintainer email="www.kentaro.wada@gmail.com">Kentaro Wada</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
